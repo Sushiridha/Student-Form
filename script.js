@@ -28,10 +28,11 @@ document.getElementById("insert").onclick = function () {
 };
 
 // Fetch data from the database and display it in the table
+//.on() Listens to the changes in realtime database
 firebase.database().ref("student").on("value", function(snapshot) {
   var studentTable = document.getElementById("studentTable").getElementsByTagName("tbody")[0];
   studentTable.innerHTML = "";
-
+    //Fetch data from the database [.val()]
   snapshot.forEach(function(childSnapshot) {
     var studentData = childSnapshot.val();
     var studentKey = childSnapshot.key;
